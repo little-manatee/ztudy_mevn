@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node server/index"
+    "dev": "nodemon --exec babel-node server/index",
+    "prettier": "prettier --write './**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "@babel/node": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "babel-plugin-module-resolver": "^4.0.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "prettier": "^2.1.2"
   }
 }
