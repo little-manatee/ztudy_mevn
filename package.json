@@ -1,0 +1,30 @@
+{
+  "name": "ztudy_mevn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node server/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/little-manatee/ztudy_mevn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/little-manatee/ztudy_mevn/issues"
+  },
+  "homepage": "https://github.com/little-manatee/ztudy_mevn#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "nodemon": "^2.0.6"
+  }
+}
