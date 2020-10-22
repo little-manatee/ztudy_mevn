@@ -3,7 +3,7 @@ import Mongoose from 'mongoose'
 import config from '@config'
 import v1Router from '@routes'
 
-Mongoose.connect(config.databaseUrl, {useNewUrlParser: true})
+Mongoose.connect(config.databaseUrl, { useNewUrlParser: true })
 
 const app = Express()
 app.use(v1Router)
