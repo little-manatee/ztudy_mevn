@@ -6,13 +6,20 @@ import v1Router from '@routes'
 import Webpack from 'webpack'
 import WebpackConfig from '../webpack.config'
 import WebpackDevMiddleware from 'webpack-dev-middleware'
+import WebpackHotMiddleware from 'webpack-hot-middleware'
 
 Mongoose.connect(config.databaseUrl, { useNewUrlParser: true })
 
 const app = Express()
 const compiler = Webpack(WebpackConfig)
 
-app.use(WebpackDevMiddleware(compiler))
+app.use(WebpackDevMiddleware(compiler, {
+    hot: true,
+    publicPath: WebpackConfig.output.publicPath
+}))
+
+app.use(WebpackHotMiddleware(compiler))
+
 app.use(v1Router)
 
 app.get('*', (req, res) => {
