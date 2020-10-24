@@ -4,7 +4,7 @@ import config from '@config'
 import path from 'path'
 import v1Router from '@routes'
 import Webpack from 'webpack'
-import WebpackConfig from '../webpack.config'
+import WebpackConfig from '@/webpack.config'
 import WebpackDevMiddleware from 'webpack-dev-middleware'
 import WebpackHotMiddleware from 'webpack-hot-middleware'
 
