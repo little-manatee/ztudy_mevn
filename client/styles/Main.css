@@ -3,3 +3,16 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css?family=Merriweather:300,400,700');
+
+@layer base {
+    h1 {
+      @apply text-2xl;
+    }
+    h2 {
+      @apply text-xl;
+    }
+}
+
+body {
+    background-color: #fefbfa !important;
+}
