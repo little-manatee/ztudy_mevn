@@ -5,8 +5,8 @@
 				Register
 			</h1>
 
-            <div class="w-full p-6 bg-white shadow-md mt-5 rounded-sm p-12">
-				<validation-observer ref="observer" v-slot="{ invalid }" tag="form" @submit.prevent="submit()">
+            <div class="w-full p-6 bg-white shadow-md mt-5 rounded-sm">
+				<validation-observer ref="observer" v-slot="{ errors }" tag="form" @submit.prevent="submit()">
 					<text-input
 						id="RegisterUsername"
 						v-model="model.name"
