@@ -8,6 +8,7 @@
             "alias": {
                 "@": "./",
                 "@components": "./client/components",
+                "@mixins": "./client/mixins",
                 "@pages": "./client/pages",
                 "@router": "./client/router",
                 "@styles": "./client/styles",
