@@ -1,8 +1,9 @@
 import Vue from 'vue'
-import './styles/main.css'
-import router from './routes'
 import Router from 'vue-router'
-import Main from './pages/Main.vue'
+import router from "@router/router";
+import {} from "@validators";
+import Main from "@pages/Main.vue";
+import "@styles/main.css";
 import TextInput from '@components/TextInput.vue'
 
 Vue.use(Router)

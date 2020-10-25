@@ -7,11 +7,14 @@
             "root": ["./"],
             "alias": {
                 "@": "./",
+                "@components": "./client/components",
                 "@pages": "./client/pages",
+                "@router": "./client/router",
+                "@styles": "./client/styles",
+                "@validators": "./client/validators",
                 "@config": "./server/config",
-                "@routes": "./server/routes",
                 "@controllers": "./server/controllers",
-                "@components": "./client/components"
+                "@routes": "./server/routes"
             }
         }]
     ]
