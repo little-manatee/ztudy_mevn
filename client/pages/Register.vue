@@ -39,11 +39,12 @@
 							{{ errors["error"] }}
 						</span>
 					</div>
-					<button
-						class="w-full mt-3 text-sm py-5 bg-emerald text-white rounded-sm focus:outline-none hover:bg-emerald-light"
-					>
-						Sign Up
-					</button>
+					<btn
+						label="Sign Up"
+						:disabled="loading"
+						:loading="loading"
+						@click="submit"
+					/>
 				</validation-observer>
             </div>
         </div>
@@ -52,10 +53,9 @@
 
 <script>
 	import { POST_REGISTER } from '@store/auth/actions'
-	import formMixin from "@mixins/form";
     export default {
-		mixins: [formMixin],
 		data: () => ({
+			loading: false,
 			errors: {},
 			model: {
 				name: "",
@@ -69,8 +69,17 @@
 					if (!isValid) {
 						return;
                     }
+					this.errors = {};
+					this.toggleLoading();
                     this.$store.dispatch(POST_REGISTER, this.model)
+						.then(() => {
+							this.toggleLoading();
+							this.$router.push('/')
+						})
                 })
+            },
+            toggleLoading() {
+                this.loading = !this.loading
             }
         },
     }
