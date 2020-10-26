@@ -7,10 +7,12 @@
             "root": ["./"],
             "alias": {
                 "@": "./",
+                "@client": "./client",
                 "@components": "./client/components",
                 "@mixins": "./client/mixins",
                 "@pages": "./client/pages",
                 "@router": "./client/router",
+                "@store": "./client/store",
                 "@styles": "./client/styles",
                 "@validators": "./client/validators",
                 "@config": "./server/config",

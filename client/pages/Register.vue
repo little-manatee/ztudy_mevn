@@ -51,6 +51,7 @@
 </template> 
 
 <script>
+	import { POST_REGISTER } from '@store/auth/actions'
 	import formMixin from "@mixins/form";
     export default {
 		mixins: [formMixin],
@@ -66,10 +67,9 @@
             submit() {
 				this.$refs.observer.validate().then((isValid) => {
 					if (!isValid) {
-                        console.log('some invalid')
 						return;
                     }
-                    console.log('All valid')
+                    this.$store.dispatch(POST_REGISTER, this.model)
                 })
             }
         },
