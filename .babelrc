@@ -17,6 +17,7 @@
                 "@validators": "./client/validators",
                 "@config": "./server/config",
                 "@controllers": "./server/controllers",
+                "@models": "./server/models",
                 "@routes": "./server/routes"
             }
         }]
