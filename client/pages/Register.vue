@@ -34,9 +34,9 @@
 						autocomplete="off"
 						:error="errors['password']"
 					/>
-					<div v-show="errors['error']" class="pb-1 w-full text-center">
+					<div v-show="error_msg" class="pb-1 w-full text-center">
 						<span class="text-red-400 text-xs font-normal px-2">
-							{{ errors["error"] }}
+							{{ error_msg }}
 						</span>
 					</div>
 					<btn
@@ -53,10 +53,13 @@
 
 <script>
 	import { POST_REGISTER, SET_AUTH } from '@store/auth/actions'
+	import formMixin from "@mixins/form";
     export default {
+		mixins: [formMixin],
 		data: () => ({
 			loading: false,
 			errors: {},
+			error_msg: "",
 			model: {
 				name: "",
 				email: "",
@@ -69,21 +72,32 @@
 					if (!isValid) {
 						return;
                     }
-					this.errors = {};
-					this.toggleLoading();
-                    this.$store.dispatch(POST_REGISTER, this.model)
+					this.errors = {}
+					this.error_msg = ""
+					this.toggleLoading()
+					this.$store
+						.dispatch(POST_REGISTER, this.model)
 						.then(response => {
-							this.toggleLoading();
-
-							localStorage.setItem('auth', JSON.stringify(response.data))
-							this.$store.commit(SET_AUTH, response.data)
-							
-							this.$router.push('/')
+                            this.toggleLoading()
+                            localStorage.setItem('auth', JSON.stringify(response.data))
+                            this.$store.commit(SET_AUTH, response.data)
+                            this.$router.push('/')
 						})
+						.catch((error, response) => {
+							this.toggleLoading()
+							
+							if (typeof error.response.data == "string") {
+								this.errors = { error: error.response.data };
+								this.error_msg = error.response.data;
+								return;
+							}
+
+							Object.keys(error.response.data).forEach((field) => {
+								this.errors[field] = error.response.data[field];
+								this.error_msg  = "| " + field + " : " + error.response.data[field] + " |";
+							});
+						});
                 })
-            },
-            toggleLoading() {
-                this.loading = !this.loading
             }
         },
     }

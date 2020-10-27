@@ -15,10 +15,12 @@
                 "@store": "./client/store",
                 "@styles": "./client/styles",
                 "@validators": "./client/validators",
+                "@server": "./server",
                 "@config": "./server/config",
                 "@controllers": "./server/controllers",
                 "@models": "./server/models",
-                "@routes": "./server/routes"
+                "@routes": "./server/routes",
+                "@svalidators": "./server/validators"
             }
         }]
     ]
