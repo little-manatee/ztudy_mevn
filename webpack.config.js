@@ -11,37 +11,37 @@ module.exports = {
     output: {
         filename: 'app.js',
         publicPath: '/',
-        path: path.resolve(__dirname, 'server/public')
+        path: path.resolve(__dirname, 'server/public'),
     },
     module: {
         rules: [
             {
                 test: /\.js$/,
                 use: {
-                    loader: 'babel-loader'
-                }
+                    loader: 'babel-loader',
+                },
             },
             {
                 test: /\.vue$/,
                 use: {
-                    loader: 'vue-loader'
-                }
+                    loader: 'vue-loader',
+                },
             },
             {
                 test: /\.css$/,
                 use: [
                     MiniExtracCssPlugin.loader,
                     'css-loader',
-                    'postcss-loader'
-                ]
-            }
-        ]
+                    'postcss-loader',
+                ],
+            },
+        ],
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new VueLoaderPlugin(),
         new MiniExtracCssPlugin({
-            filename: 'app.css'
-        })
-    ]
+            filename: 'app.css',
+        }),
+    ],
 }

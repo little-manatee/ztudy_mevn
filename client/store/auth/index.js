@@ -9,7 +9,7 @@ try {
 } catch (e) {
     initialState = {
         user: null,
-        token: null
+        token: null,
     }
 }
 
@@ -17,5 +17,5 @@ export default {
     state: initialState,
     actions,
     getters,
-    mutations
+    mutations,
 }

@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema({
     updatedAt: Date,
     password: String,
     emailConfirmedAt: Date,
-    emailConfirmCode: String
+    emailConfirmCode: String,
 })
 
 UserSchema.pre('save', function () {
@@ -28,13 +28,17 @@ UserSchema.post('save', async function () {
         .subject('[Ztudy_MEVN] Please confirm your account')
         .data({
             name: this.name,
-            url: `${config.url}/auth/emails/confirm/${this.emailConfirmCode}`
+            url: `${config.url}/auth/emails/confirm/${this.emailConfirmCode}`,
         })
         .send()
 })
 
 UserSchema.methods.generateToken = function () {
     return jwt.sign({ id: this._id }, config.jwtSecret)
+}
+
+UserSchema.methods.comparePasswords = function (plainPassword) {
+    return Bcrypt.compareSync(plainPassword, this.password)
 }
 
 export default mongoose.model('User', UserSchema)

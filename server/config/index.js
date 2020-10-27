@@ -7,5 +7,5 @@ export default {
     jwtSecret: process.env.JWT_SECRET || '1234Keyyyy',
     databaseUrl:
         process.env.DATABASE_URL ||
-        'mongodb://localhost:27017/ztudy_mevn_mongo'
+        'mongodb://localhost:27017/ztudy_mevn_mongo',
 }
