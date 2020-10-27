@@ -43,7 +43,7 @@
 </template> 
 
 <script>
-	import { POST_LOGIN, SET_AUTH } from '@store/auth/actions'
+	import { POST_LOGIN } from '@store/auth/actions'
 	import formMixin from "@mixins/form";
     export default {
 		mixins: [formMixin],
@@ -69,9 +69,7 @@
 						.dispatch(POST_LOGIN, this.model)
 						.then(response => {
                             this.toggleLoading()
-                            localStorage.setItem('auth', JSON.stringify(response.data))
-                            this.$store.commit(SET_AUTH, response.data)
-                            this.$router.push('/')
+                            this.setAuth(response.data)
 						})
 						.catch((error, response) => {
 							this.toggleLoading()

@@ -7,9 +7,12 @@ import '@styles/main.css'
 import Button from '@components/Button.vue'
 import Loader from '@components/Loader.vue'
 import TextInput from '@components/TextInput.vue'
+import authMixin from '@client/mixins/auth'
 import store from './store'
 
 Vue.use(Router)
+
+Vue.mixin(authMixin)
 
 Vue.component('btn', Button)
 Vue.component('loader', Loader)
