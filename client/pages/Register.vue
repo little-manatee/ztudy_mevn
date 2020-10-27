@@ -57,7 +57,6 @@
     export default {
 		mixins: [formMixin],
 		data: () => ({
-			loading: false,
 			errors: {},
 			error_msg: "",
 			model: {
