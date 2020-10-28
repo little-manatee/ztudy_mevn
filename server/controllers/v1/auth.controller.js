@@ -37,6 +37,22 @@ const register = async (req, res) => {
     return res.status(201).json({ user, token })
 }
 
+const confirmEmail = async (req, res) => {
+    const user = await User.findOneAndUpdate({
+        email: req.user.email
+    }, {
+        emailConfirmCode: null,
+        emailConfirmedAt: new Date()
+    }, { new: true })
+
+    const token = user.generateToken()
+
+    return res.json({
+        user,
+        token
+    })
+}
+
 const forgotPassword = async (req, res) => {
     await req.user.forgotPassword()
 
@@ -67,6 +83,7 @@ const resetPassword = async (req, res) => {
 export default {
     login,
     register,
+    confirmEmail,
     forgotPassword,
     resetPassword
 }
