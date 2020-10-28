@@ -76,7 +76,8 @@
 					this.$store
 						.dispatch(POST_REGISTER, this.model)
 						.then(response => {
-                            this.toggleLoading()
+							this.toggleLoading()
+							this.flash('Succesfully registered.')
                             this.setAuth(response.data)
 						})
 						.catch((error, response) => {

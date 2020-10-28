@@ -27,6 +27,7 @@ export default {
         unsetAuth() {
             localStorage.removeItem('auth')
             this.$store.commit(UNSET_AUTH)
+            this.flash('Successfully logged out.')
 
             this.$router.push('/')
         },
@@ -37,9 +38,11 @@ export default {
 					access_token: this.token,
 				})
 				.then(() => {
+                    this.flash('Successfully resent confirm email.')
 					if (this.$route.path !== '/') this.$router.push('/')
 				})
 				.catch(() => {
+                    this.flash('Error resending confirm email.')
 					if (this.$route.path !== '/') this.$router.push('/')
 				});
 		},

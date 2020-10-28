@@ -13,7 +13,7 @@
             }).then(response => {
                 this.setAuth(response.data)
             }).catch(() => {
-                // TODO: flash a message to the user
+                this.flash('Error confirming email.', 'error')
                 this.$router.push('/')
             })
         }

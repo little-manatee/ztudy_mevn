@@ -62,7 +62,8 @@
                             token: this.$route.params.token
                         })
 						.then(response => {
-                            this.toggleLoading()
+							this.toggleLoading()
+							this.flash('Password has been reset.')
                             this.$router.push('/')
 						})
 						.catch((error, response) => {

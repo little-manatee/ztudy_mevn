@@ -31,6 +31,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.9",
     "randomstring": "^1.1.5",
+    "uuid": "^3.4.0",
     "vee-validate": "^3.4.3",
     "vue": "^2.6.12",
     "vue-router": "^3.4.7",

@@ -69,7 +69,8 @@
 					this.$store
 						.dispatch(POST_LOGIN, this.model)
 						.then(response => {
-                            this.toggleLoading()
+							this.toggleLoading()
+							this.flash('Sign in successful.')
                             this.setAuth(response.data)
 						})
 						.catch((error, response) => {

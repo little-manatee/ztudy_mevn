@@ -8,11 +8,13 @@ import Button from '@components/Button.vue'
 import Loader from '@components/Loader.vue'
 import TextInput from '@components/TextInput.vue'
 import authMixin from '@client/mixins/auth'
+import flashMixin from '@client/mixins/flash'
 import store from './store'
 
 Vue.use(Router)
 
 Vue.mixin(authMixin)
+Vue.mixin(flashMixin)
 
 Vue.component('btn', Button)
 Vue.component('loader', Loader)

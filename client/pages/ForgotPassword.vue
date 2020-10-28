@@ -56,7 +56,8 @@
 					this.$store
 						.dispatch(POST_FORGOT_PASSWORD, this.model)
 						.then(response => {
-                            this.toggleLoading()
+							this.toggleLoading()
+							this.flash('Password reset link sent. It expires in 5 minutes')
                             this.$router.push('/')
 						})
 						.catch((error, response) => {
