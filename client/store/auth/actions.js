@@ -1,5 +1,8 @@
 import client from '@client/utils/axios'
 
+// getters
+export const GET_TOKEN = 'GET_TOKEN'
+
 // mutations
 export const SET_AUTH = 'SET_AUTH'
 export const UNSET_AUTH = 'UNSET_AUTH'

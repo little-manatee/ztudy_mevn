@@ -8,6 +8,9 @@ export default {
         user() {
             return this.$store.state.auth.user
         },
+		token() {
+			return this.$store.getters.GET_TOKEN;
+		},
         confirmed() {
             return !!this.$store.state.auth.user.emailConfirmedAt
         }
@@ -28,14 +31,17 @@ export default {
             this.$router.push('/')
         },
 
-        resendEmailConfirm() {
-            this.$store.dispatch(POST_RESENT_EMAIL_CONFIRM)
-                .then(() => {
-                    if (this.$route.path !== '/') this.$router.push('/')
-                })
-                .catch(() => {
-                    if (this.$route.path !== '/') this.$router.push('/')
-                })
-        }
+		resendEmailConfirm() {
+			this.$store
+				.dispatch(POST_RESENT_EMAIL_CONFIRM, {
+					access_token: this.token,
+				})
+				.then(() => {
+					if (this.$route.path !== '/') this.$router.push('/')
+				})
+				.catch(() => {
+					if (this.$route.path !== '/') this.$router.push('/')
+				});
+		},
     }
 }
