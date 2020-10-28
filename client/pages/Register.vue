@@ -43,7 +43,6 @@
 						label="Sign Up"
 						:disabled="loading"
 						:loading="loading"
-						@click="submit"
 					/>
 				</validation-observer>
             </div>
@@ -52,7 +51,7 @@
 </template> 
 
 <script>
-	import { POST_REGISTER, SET_AUTH } from '@store/auth/actions'
+	import { POST_REGISTER } from '@store/auth/actions'
 	import formMixin from "@mixins/form";
     export default {
 		mixins: [formMixin],
