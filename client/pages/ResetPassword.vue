@@ -63,7 +63,7 @@
                         })
 						.then(response => {
                             this.toggleLoading()
-                            this.$route.push('/')
+                            this.$router.push('/')
 						})
 						.catch((error, response) => {
 							this.toggleLoading()
