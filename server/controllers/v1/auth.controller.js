@@ -53,6 +53,16 @@ const confirmEmail = async (req, res) => {
     })
 }
 
+const resendConfirmEmail = async (req, res) => {
+    if (!req.user.emailConfirmedAt) {
+        await req.user.sendEmailConfirmation()
+    }
+
+    return res.json({
+        message: 'Email confirm sent.'
+    })
+}
+
 const forgotPassword = async (req, res) => {
     await req.user.forgotPassword()
 
@@ -84,6 +94,7 @@ export default {
     login,
     register,
     confirmEmail,
+    resendConfirmEmail,
     forgotPassword,
     resetPassword
 }

@@ -18,6 +18,7 @@
                 "@server": "./server",
                 "@config": "./server/config",
                 "@controllers": "./server/controllers",
+                "@middleware": "./server/middleware",
                 "@models": "./server/models",
                 "@routes": "./server/routes",
                 "@svalidators": "./server/validators"
